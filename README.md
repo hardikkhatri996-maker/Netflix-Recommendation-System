@@ -1,121 +1,59 @@
-🎬 Netflix Recommendation System
+🎬 Netflix Movie Recommendation System (SVD)
+An end-to-end Collaborative Filtering recommendation engine that processes the massive Netflix Prize dataset to predict user ratings and suggest top-tier content.
 
-A Machine Learning project focused on building a personalized movie recommendation system using Collaborative Filtering (SVD) on the Netflix dataset.
+📌 Project Overview
+The goal of this project is to overcome the "Cold Start" and "Sparsity" challenges in recommendation systems. By utilizing Singular Value Decomposition (SVD), the system identifies latent factors (hidden patterns) between users and movies to estimate how a user would rate a movie they haven't seen yet.
 
-🚀 Project Overview
+Key Features:
+Data Cleaning & Wrangling: Transforming raw Netflix text files into structured DataFrames.
 
-This project develops a recommendation engine that predicts user ratings for unseen movies using Singular Value Decomposition (SVD).
+Dynamic Filtering: Implements a "Benchmark" system to remove inactive users and unpopular movies, ensuring high-quality model training.
 
-The system follows a structured data science pipeline including:
+SVD Implementation: Uses the Matrix Factorization technique to predict ratings.
 
-Data Cleaning
+Personalized Top-N Recommendations: Generates a ranked list of the top 5 movie suggestions for any specific User ID.
 
-Exploratory Data Analysis (EDA)
-
-Data Filtering & Benchmarking
-
-Model Training & Cross Validation
-
-Personalized Movie Recommendations
-
-The goal is to simulate how real-world streaming platforms recommend content to users.
-
-🛠 Tech Stack & Libraries
-
+🛠️ Technical Stack
 Language: Python
 
-Data Analysis: Pandas, NumPy
+Data Manipulation: pandas, numpy
 
-Visualization: Matplotlib, Seaborn
+Visualization: matplotlib, seaborn
 
-Machine Learning: Scikit-Surprise (SVD)
+ML Framework: scikit-surprise (SVD, Dataset, Reader)
 
-Model Evaluation: RMSE (Root Mean Squared Error)
+🚀 Workflow
+1. Data Pre-processing
+The raw dataset contains movie IDs embedded as rows followed by user ratings. The script:
 
-📊 Key Features & Methodology
+Extracts Movie_Id from the rows and populates a new column.
 
-To ensure accuracy and recommendation quality, the following techniques were implemented:
+Removes null values and corrects data types for memory efficiency.
 
-🔹 Data Cleaning
+2. Data Trimming (The Benchmark)
+To improve model accuracy and reduce computational load:
 
-Handled missing values
+Movie Benchmark: Drops movies with ratings below the 60th percentile.
 
-Removed invalid entries
+Customer Benchmark: Drops users who have rated fewer movies than the 60th percentile.
 
-Structured Movie IDs correctly
+3. Collaborative Filtering (SVD)
+The model decomposes the User-Item matrix into three smaller matrices. These matrices represent:
 
-🔹 Exploratory Data Analysis (EDA)
+User Preferences (e.g., preference for Sci-Fi or Drama).
 
-Analyzed rating distribution
+Item Characteristics (e.g., movie genre or director).
 
-Counted total movies, customers, and ratings
+The strength of these latent features.
 
-Visualized star rating frequency
+4. Evaluation
+The model is validated using Cross-Validation (3-fold) with RMSE (Root Mean Square Error) as the primary metric to ensure prediction accuracy.
 
-🔹 Data Pre-Filtering
+📊 Results & Usage
+To generate recommendations for a specific user (e.g., User 1331154):
 
-Removed movies with low rating counts
+The model calculates an Estimate_Score for all movies in the database.
 
-Removed inactive users
+Movies already seen by the user are filtered out.
 
-Applied 60th percentile benchmark filtering
-
-🔹 Model Building
-
-Implemented Singular Value Decomposition (SVD)
-
-Trained model using Surprise library
-
-Performed 3-fold cross validation
-
-🔹 Model Evaluation
-
-Used RMSE as performance metric
-
-Evaluated prediction accuracy
-
-🔹 Personalized Recommendations
-
-Predicted estimated ratings
-
-Generated Top 5 movie recommendations for specific users
-
-📈 Model Performance
-
-The model was evaluated using cross-validation with RMSE to measure prediction accuracy.
-
-Lower RMSE indicates better predictive performance.
-
-📁 Dataset
-
-Netflix Prize Dataset
-
-combined_data_1.csv
-
-movie_titles.csv
-
-🔮 Future Improvements
-
-Implement Hybrid Recommendation System
-
-Deploy as Web App using Streamlit
-
-Use full dataset for improved accuracy
-
-Add content-based filtering
-
-📌 How to Run
-pip install -r requirements.txt
-python Netflix_project_by_intellipaat.py
-
-💡 Project Highlights
-
-✔ Real-world large dataset handling
-✔ Matrix factorization implementation
-✔ Collaborative filtering approach
-✔ Scalable recommendation logic
-
-👨‍💻 Author
-
-Mohit Khatri
-Aspiring Machine Learning & AI Engineer
+The system returns the top 5 highest-scored movies.
