@@ -1,56 +1,121 @@
-📌 Netflix Movie Recommendation System (SVD Based)
+🎬 Netflix Recommendation System
+
+A Machine Learning project focused on building a personalized movie recommendation system using Collaborative Filtering (SVD) on the Netflix dataset.
+
 🚀 Project Overview
 
-This project builds a Movie Recommendation System using Singular Value Decomposition (SVD) to predict user ratings and recommend top movies.
+This project develops a recommendation engine that predicts user ratings for unseen movies using Singular Value Decomposition (SVD).
 
-The model analyzes user-movie interactions and learns hidden patterns to generate personalized recommendations.
+The system follows a structured data science pipeline including:
 
-🧠 Algorithm Used
+Data Cleaning
 
-Collaborative Filtering
+Exploratory Data Analysis (EDA)
 
-Singular Value Decomposition (SVD)
+Data Filtering & Benchmarking
 
-Surprise Library
+Model Training & Cross Validation
 
-📊 Dataset
+Personalized Movie Recommendations
 
-Netflix Prize Dataset (combined_data_1.csv)
+The goal is to simulate how real-world streaming platforms recommend content to users.
 
-⚙️ Features
+🛠 Tech Stack & Libraries
 
-✔ Data Cleaning & Preprocessing
-✔ User & Movie Filtering
-✔ Model Training using SVD
-✔ RMSE Evaluation
-✔ Personalized Top-5 Recommendations
+Language: Python
 
-📈 Model Evaluation
+Data Analysis: Pandas, NumPy
 
-Cross Validation RMSE used for performance measurement.
+Visualization: Matplotlib, Seaborn
 
-🛠 Tech Stack
+Machine Learning: Scikit-Surprise (SVD)
 
-Python
+Model Evaluation: RMSE (Root Mean Squared Error)
 
-Pandas
+📊 Key Features & Methodology
 
-NumPy
+To ensure accuracy and recommendation quality, the following techniques were implemented:
 
-Matplotlib
+🔹 Data Cleaning
 
-Seaborn
+Handled missing values
 
-Scikit-Surprise
+Removed invalid entries
 
-📌 Future Improvements
+Structured Movie IDs correctly
+
+🔹 Exploratory Data Analysis (EDA)
+
+Analyzed rating distribution
+
+Counted total movies, customers, and ratings
+
+Visualized star rating frequency
+
+🔹 Data Pre-Filtering
+
+Removed movies with low rating counts
+
+Removed inactive users
+
+Applied 60th percentile benchmark filtering
+
+🔹 Model Building
+
+Implemented Singular Value Decomposition (SVD)
+
+Trained model using Surprise library
+
+Performed 3-fold cross validation
+
+🔹 Model Evaluation
+
+Used RMSE as performance metric
+
+Evaluated prediction accuracy
+
+🔹 Personalized Recommendations
+
+Predicted estimated ratings
+
+Generated Top 5 movie recommendations for specific users
+
+📈 Model Performance
+
+The model was evaluated using cross-validation with RMSE to measure prediction accuracy.
+
+Lower RMSE indicates better predictive performance.
+
+📁 Dataset
+
+Netflix Prize Dataset
+
+combined_data_1.csv
+
+movie_titles.csv
+
+🔮 Future Improvements
+
+Implement Hybrid Recommendation System
 
 Deploy as Web App using Streamlit
 
-Add Hybrid Recommendation
+Use full dataset for improved accuracy
 
-Use full dataset for better accuracy
+Add content-based filtering
 
-🔥 Author
+📌 How to Run
+pip install -r requirements.txt
+python Netflix_project_by_intellipaat.py
+
+💡 Project Highlights
+
+✔ Real-world large dataset handling
+✔ Matrix factorization implementation
+✔ Collaborative filtering approach
+✔ Scalable recommendation logic
+
+👨‍💻 Author
 
 Mohit Khatri
+Aspiring Machine Learning & AI Engineer
