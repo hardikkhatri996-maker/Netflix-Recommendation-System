@@ -1,59 +1,52 @@
-🎬 Netflix Movie Recommendation System (SVD)
-An end-to-end Collaborative Filtering recommendation engine that processes the massive Netflix Prize dataset to predict user ratings and suggest top-tier content.
 
-📌 Project Overview
-The goal of this project is to overcome the "Cold Start" and "Sparsity" challenges in recommendation systems. By utilizing Singular Value Decomposition (SVD), the system identifies latent factors (hidden patterns) between users and movies to estimate how a user would rate a movie they haven't seen yet.
+Netflix Movie Recommendation System
+A Machine Learning project that leverages Singular Value Decomposition (SVD) and Collaborative Filtering to predict user movie ratings and provide personalized recommendations using the Netflix Prize dataset.
 
-Key Features:
-Data Cleaning & Wrangling: Transforming raw Netflix text files into structured DataFrames.
+🚀 Project Overview
+This project focuses on building a scalable recommendation engine. It handles a large-scale sparse dataset by implementing strategic data trimming and matrix factorization techniques to discover latent features in user-movie interactions.
 
-Dynamic Filtering: Implements a "Benchmark" system to remove inactive users and unpopular movies, ensuring high-quality model training.
-
-SVD Implementation: Uses the Matrix Factorization technique to predict ratings.
-
-Personalized Top-N Recommendations: Generates a ranked list of the top 5 movie suggestions for any specific User ID.
-
-🛠️ Technical Stack
+🛠️ Tech Stack & Libraries
 Language: Python
 
-Data Manipulation: pandas, numpy
+Data Analysis: Pandas, NumPy
 
-Visualization: matplotlib, seaborn
+Visualization: Matplotlib, Seaborn
 
-ML Framework: scikit-surprise (SVD, Dataset, Reader)
+Machine Learning: Scikit-Surprise (SVD)
 
-🚀 Workflow
-1. Data Pre-processing
-The raw dataset contains movie IDs embedded as rows followed by user ratings. The script:
+📊 Key Features & Methodology
+To ensure high-quality recommendations and efficient computation, the following techniques were implemented:
 
-Extracts Movie_Id from the rows and populates a new column.
+Data Cleaning: Transformed raw, semi-structured text data into a queryable format by mapping User IDs to their corresponding Movie IDs and handling null values.
 
-Removes null values and corrects data types for memory efficiency.
+Exploratory Data Analysis (EDA): Analyzed the total pool of movies, customers, and ratings to understand dataset sparsity and rating distributions.
 
-2. Data Trimming (The Benchmark)
-To improve model accuracy and reduce computational load:
+Feature Engineering & Trimming:
 
-Movie Benchmark: Drops movies with ratings below the 60th percentile.
+Movie Benchmarking: Filtered out movies with ratings below the 60th percentile to focus on statistically significant content.
 
-Customer Benchmark: Drops users who have rated fewer movies than the 60th percentile.
+User Benchmarking: Removed inactive users who provided fewer ratings than the 60th percentile to reduce noise.
 
-3. Collaborative Filtering (SVD)
-The model decomposes the User-Item matrix into three smaller matrices. These matrices represent:
+Advanced Optimization:
 
-User Preferences (e.g., preference for Sci-Fi or Drama).
+Matrix Factorization: Applied Singular Value Decomposition (SVD) to identify hidden connections between user preferences and item characteristics.
 
-Item Characteristics (e.g., movie genre or director).
+Cross-Validation: Evaluated model performance using 3-fold cross-validation with Root Mean Square Error (RMSE) metrics.
 
-The strength of these latent features.
+📈 Model Performance
+The system was evaluated based on its predictive accuracy for user ratings:
 
-4. Evaluation
-The model is validated using Cross-Validation (3-fold) with RMSE (Root Mean Square Error) as the primary metric to ensure prediction accuracy.
+Algorithm: SVD (Collaborative Filtering)
 
-📊 Results & Usage
-To generate recommendations for a specific user (e.g., User 1331154):
+Metric: RMSE (Root Mean Square Error)
 
-The model calculates an Estimate_Score for all movies in the database.
+Final Output: Successfully generated personalized Top-5 movie recommendations for specific User IDs.
 
-Movies already seen by the user are filtered out.
+📁 Repository Structure
+Netflix_project_by_intellipaat.py: Main Python script containing the data processing and model pipeline.
 
-The system returns the top 5 highest-scored movies.
+combined_data_1.csv: The raw dataset containing user ratings.
+
+movie_titles.csv: Mapping of Movie IDs to Titles and Release Years.
+
+README.md: Project documentation.
